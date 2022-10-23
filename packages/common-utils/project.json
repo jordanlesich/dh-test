@@ -11,13 +11,14 @@
         "outputPath": "dist/packages/common-utils",
         "main": "packages/common-utils/src/index.ts",
         "tsConfig": "packages/common-utils/tsconfig.lib.json",
-        "assets": ["packages/common-utils/*.md"]
+        "assets": ["packages/common-utils/*.md"],
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
     },
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/scripts/publish.mjs common-utils {args.ver} {args.tag}"
+        "command": "node tools/scripts/publish.mjs common-utils 0.0.2 @dh-test/common-utils"
       },
       "dependsOn": ["build"]
     },
