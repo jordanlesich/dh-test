@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@dh-test/common-utils": ["packages/common-utils/src/index.ts"],
+      "@dh-test/is-even": ["packages/is-even/src/index.ts"],
+      "@dh-test/is-odd": ["packages/is-odd/src/index.ts"],
+      "@dh-test/ui": ["packages/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

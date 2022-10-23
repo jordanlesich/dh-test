@@ -1,0 +1,7 @@
+{
+  "name": "@dh-test/ui",
+  "version": "0.0.1",
+  "dependencies": {
+    "react-router-dom": "6.4.2"
+  }
+}
