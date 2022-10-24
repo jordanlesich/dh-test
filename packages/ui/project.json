@@ -9,6 +9,7 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "extractCss": false,
         "outputPath": "dist/packages/ui",
         "tsConfig": "packages/ui/tsconfig.lib.json",
         "project": "packages/ui/package.json",
@@ -44,7 +45,7 @@
     "publish":{
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/scripts/publish.mjs ui 0.0.6 @dh-test/ui"
+        "command": "node tools/scripts/publish.mjs ui 0.0.8 @dh-test/ui"
       }
     }
   }

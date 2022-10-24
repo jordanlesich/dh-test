@@ -1,1 +1,1 @@
-export * from './lib/dao-data';
+export * from './fake';
