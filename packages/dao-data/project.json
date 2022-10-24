@@ -1,0 +1,35 @@
+{
+  "name": "dao-data",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/dao-data/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/dao-data/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/dao-data/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/dao-data",
+        "tsConfig": "packages/dao-data/tsconfig.lib.json",
+        "packageJson": "packages/dao-data/package.json",
+        "main": "packages/dao-data/src/index.ts",
+        "assets": ["packages/dao-data/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
