@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@dh-test/common-utils": ["packages/common-utils/src/index.ts"],
+      "@dh-test/connect": ["packages/connect/src/index.ts"],
       "@dh-test/dao-data": ["packages/dao-data/src/index.ts"],
       "@dh-test/is-even": ["packages/is-even/src/index.ts"],
       "@dh-test/is-odd": ["packages/is-odd/src/index.ts"],
