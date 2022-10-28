@@ -1,1 +1,2 @@
-export * from './lib/connect';
+export * from './components';
+export * from './HausConnectContext';

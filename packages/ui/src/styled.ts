@@ -38,7 +38,7 @@ type ColorSteps = {
   step12: string;
 };
 
-export declare module 'styled-components' {
+declare module 'styled-components' {
   export interface DefaultTheme {
     themeName: string;
     rootBgColor: string;

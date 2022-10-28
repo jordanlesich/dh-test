@@ -13,8 +13,7 @@
         "outputPath": "dist/packages/ui",
         "tsConfig": "packages/ui/tsconfig.lib.json",
         "project": "packages/ui/package.json",
-        "entryFile": "packages/ui/src/index.ts",
-        "external": ["react/jsx-runtime"],
+        "entryFile": "packages/ui/src",
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "buildableProjectDepsInPackageJsonType": "dependencies",
         "compiler": "babel",
@@ -24,7 +23,8 @@
             "input": ".",
             "output": "."
           }
-        ]
+        ],
+        "external":  ["react", "react-dom", "styled-components"]
       }
     },
     "lint": {
@@ -45,7 +45,7 @@
     "publish":{
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/scripts/publish.mjs ui 0.0.8 @dh-test/ui"
+        "command": "node tools/scripts/publish.mjs ui 0.0.10 @dh-test/ui"
       }
     }
   }

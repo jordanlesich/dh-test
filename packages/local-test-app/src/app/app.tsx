@@ -1,4 +1,5 @@
 import { encodeValues } from '@dh-test/common-utils';
+import { HausLayout } from '@dh-test/connect';
 import {
   Button,
   Footer,
@@ -16,7 +17,7 @@ export function App() {
   const methods = useForm();
 
   return (
-    <>
+    <HausLayout pathname="/">
       <MainLayout>
         <SingleColumnLayout>
           <H1>Test</H1>
@@ -29,8 +30,7 @@ export function App() {
           </FormProvider>
         </SingleColumnLayout>
       </MainLayout>
-      <Footer />
-    </>
+    </HausLayout>
   );
 }
 

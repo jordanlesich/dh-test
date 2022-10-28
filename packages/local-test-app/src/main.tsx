@@ -1,3 +1,4 @@
+import { HausConnectProvider } from '@dh-test/connect';
 import { HausThemeProvider } from '@dh-test/ui';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
@@ -12,7 +13,9 @@ root.render(
   <StrictMode>
     <HashRouter>
       <HausThemeProvider>
-        <App />
+        <HausConnectProvider>
+          <App />
+        </HausConnectProvider>
       </HausThemeProvider>
     </HashRouter>
   </StrictMode>
