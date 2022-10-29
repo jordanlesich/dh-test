@@ -1,1 +1,2 @@
-export * from './lib/tx-builder';
+export * from './TXBuilder';
+export * from './utils';
