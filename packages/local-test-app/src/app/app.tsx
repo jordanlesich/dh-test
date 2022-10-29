@@ -10,8 +10,10 @@ import {
   WrappedInput,
 } from '@dh-test/ui';
 import { FormProvider, useForm } from 'react-hook-form';
-
+import { LOCAL_ABI } from '@dh-test/abi';
 console.log(encodeValues([], []));
+
+console.log(LOCAL_ABI);
 export function App() {
   const methods = useForm();
 
