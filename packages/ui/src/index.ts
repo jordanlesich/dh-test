@@ -5,6 +5,6 @@ export * from './theme';
 export * from './types';
 export * from './hooks';
 
-type Test = DefaultTheme;
+export type Test = DefaultTheme;
 
 export * as RHF from 'react-hook-form';

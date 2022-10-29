@@ -2,7 +2,6 @@ import { encodeValues } from '@dh-test/common-utils';
 import { HausLayout } from '@dh-test/connect';
 import {
   Button,
-  Footer,
   FormLayout,
   H1,
   MainLayout,
