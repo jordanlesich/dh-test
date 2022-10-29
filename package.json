@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@gnosis.pm/safe-apps-web3modal": "^17.0.2",
+    "@hookform/devtools": "^4.2.3",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-accessible-icon": "^1.0.1",
     "@radix-ui/react-avatar": "^1.0.1",
