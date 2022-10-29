@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import { ABI, isJSON, Keychain, ValidNetwork } from '@dh-test/common-utils';
 import { cacheABI, getCachedABI } from './cache';
-import { LOCAL_ABI } from '@daohaus/abi-utilities';
+import { LOCAL_ABI } from '@dh-test/abi';
 
 const isGnosisProxy = (abi: ABI) => {
   return (
@@ -20,20 +20,16 @@ export const isProxyABI = (abi: ABI) => {
 };
 
 export const TEMPORARY_RPC = {
-  '0x1': `https://${import.meta.env['VITE_RIVET_KEY']}.eth.rpc.rivet.cloud/`,
-  '0x5': `https://${import.meta.env['VITE_RIVET_KEY']}.goerli.rpc.rivet.cloud/`,
+  '0x1': `https://${process.env['VITE_RIVET_KEY']}.eth.rpc.rivet.cloud/`,
+  '0x5': `https://${process.env['VITE_RIVET_KEY']}.goerli.rpc.rivet.cloud/`,
   '0x64': 'https://rpc.gnosischain.com/',
 };
 
 const ABI_ADDRESS = '<<address>>';
 
 const TEMPORARY_ABI_EXPLORER: Keychain = {
-  '0x1': `https://api.etherscan.io/api?module=contract&action=getabi&address=${ABI_ADDRESS}&apikey=${
-    import.meta.env['VITE_ETHERSCAN_KEY']
-  }`,
-  '0x5': `https://api-goerli.etherscan.io/api?module=contract&action=getabi&address=${ABI_ADDRESS}&apikey=${
-    import.meta.env['VITE_ETHERSCAN_KEY']
-  }`,
+  '0x1': `https://api.etherscan.io/api?module=contract&action=getabi&address=${ABI_ADDRESS}&apikey=${process.env['VITE_ETHERSCAN_KEY']}`,
+  '0x5': `https://api-goerli.etherscan.io/api?module=contract&action=getabi&address=${ABI_ADDRESS}&apikey=${process.env['VITE_ETHERSCAN_KEY']}`,
   '0x64': `https://blockscout.com/xdai/mainnet/api?module=contract&action=getabi&address=${ABI_ADDRESS}`,
 };
 

@@ -1,5 +1,5 @@
 import { JSONDetailsSearch } from '@dh-test/common-utils';
-import { LOCAL_ABI } from '@daohaus/abi-utilities';
+import { LOCAL_ABI } from '@dh-test/abi';
 
 export const EXPIRY = '.proposalExpiry';
 export const FORM = '.formValues';

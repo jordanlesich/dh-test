@@ -16,7 +16,6 @@
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "buildableProjectDepsInPackageJsonType": "dependencies",
-        "configFile": "packages//rollup.config.js",
         "compiler": "babel",
         "assets": [
           {

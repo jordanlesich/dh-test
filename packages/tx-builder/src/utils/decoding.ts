@@ -9,7 +9,7 @@ import {
   ValidArgType,
   ValidNetwork,
 } from '@dh-test/common-utils';
-import { LOCAL_ABI } from '@daohaus/abi-utilities';
+import { LOCAL_ABI } from '@dh-test/abi';
 import { createContract, fetchABI, getCode } from './abi';
 import { isSearchArg } from './args';
 

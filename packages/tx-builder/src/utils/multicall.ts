@@ -17,7 +17,7 @@ import {
   TXLego,
   ValidNetwork,
 } from '@dh-test/common-utils';
-import { LOCAL_ABI } from '@daohaus/abi-utilities';
+import { LOCAL_ABI } from '@dh-test/abi';
 import { encodeMultiSend, MetaTransaction } from '@gnosis.pm/safe-contracts';
 import { getAddress } from 'ethers/lib/utils';
 import { processArg } from './args';
