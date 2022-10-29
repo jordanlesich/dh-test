@@ -1,5 +1,9 @@
-import { isValidNetwork, ReactSetter } from '@dh-test/common-utils';
-import { fakeProfile } from '@dh-test/dao-data';
+import {
+  isValidNetwork,
+  ReactSetter,
+  truncateAddress,
+} from '@dh-test/common-utils';
+import { Haus } from '@dh-test/dao-data';
 import { SafeAppWeb3Modal } from '@gnosis.pm/safe-apps-web3modal';
 import { providers } from 'ethers';
 
@@ -120,25 +124,24 @@ export const loadProfile = async ({
   shouldUpdate: boolean;
   networks: NetworkConfigs;
 }) => {
-  return fakeProfile();
-  // try {
-  //   setProfileLoading(true);
-  //   const haus = Haus.create();
-  //   const profile = await haus.profile.get({ address: address });
+  try {
+    setProfileLoading(true);
+    const haus = Haus.create();
+    const profile = await haus.profile.get({ address: address });
 
-  //   if (profile && shouldUpdate) {
-  //     const displayName =
-  //       profile.name || profile.ens || truncateAddress(address);
-  //     setProfile({ ...profile, displayName });
-  //   }
-  // } catch (error) {
-  //   console.error(error);
-  //   setProfile({ displayName: '', address: '', ens: '' });
-  // } finally {
-  //   if (shouldUpdate) {
-  //     setProfileLoading(false);
-  //   }
-  // }
+    if (profile && shouldUpdate) {
+      const displayName =
+        profile.name || profile.ens || truncateAddress(address);
+      setProfile({ ...profile, displayName });
+    }
+  } catch (error) {
+    console.error(error);
+    setProfile({ displayName: '', address: '', ens: '' });
+  } finally {
+    if (shouldUpdate) {
+      setProfileLoading(false);
+    }
+  }
 };
 
 export const handleSwitchNetwork = async (
