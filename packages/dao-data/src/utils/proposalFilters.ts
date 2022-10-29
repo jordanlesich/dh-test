@@ -1,4 +1,4 @@
-import { nowInSeconds, PROPOSAL_STATUS } from '@daohaus/common-utilities';
+import { nowInSeconds, PROPOSAL_STATUS } from '@dh-test/common-utils';
 import { Proposal_Filter } from '../types';
 
 export const statusFilter = (

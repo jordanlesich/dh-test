@@ -4,7 +4,7 @@ import {
   ITransformedMembershipsQuery,
   Keychain,
   nowInSeconds,
-} from '@daohaus/common-utilities';
+} from '@dh-test/common-utils';
 import {
   ICrossNetworkMemberListArguments,
   ListMembershipsDocument,

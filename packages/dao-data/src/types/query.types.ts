@@ -1,4 +1,4 @@
-import { Keychain, TokenBalance } from '@daohaus/common-utilities';
+import { Keychain, TokenBalance } from '@dh-test/common-utils';
 import { HausError } from '../HausError';
 import { ListDaosQuery } from '../subgraph/queries/daos.generated';
 import { ListProposalsQuery } from '../subgraph/queries/proposals.generated';
@@ -28,7 +28,7 @@ export interface ICrossNetworkMemberListArguments<
 }
 
 export type QueryVariables = {
-  [field: string]: string;
+  [field: string]: string | QueryVariables | QueryVariables[];
 };
 
 export type Ordering<TOrderBy extends string> = {

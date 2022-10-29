@@ -2,10 +2,10 @@ import 'cross-fetch/polyfill';
 
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { DocumentNode } from 'graphql';
-import { Keychain } from '@daohaus/common-utilities';
+import { Keychain } from '@dh-test/common-utils';
 import { request } from 'graphql-request';
 
-import { IFindQueryResult, QueryVariables } from '..';
+import { IFindQueryResult, QueryVariables } from '../types';
 import { HausError } from '../HausError';
 
 type RequestDocument = string | DocumentNode;

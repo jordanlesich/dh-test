@@ -1,5 +1,5 @@
 import { ValidNetwork } from '@dh-test/common-utils';
-import { FindTxQuery, Haus, IFindQueryResult } from '@dh-test/dao-data';
+import { Haus, IFindQueryResult, FindTxQuery } from '@dh-test/dao-data';
 
 // TS Challenge
 

@@ -6,7 +6,7 @@ import {
   KeychainList,
   nowInSeconds,
   TokenBalance,
-} from '@daohaus/common-utilities';
+} from '@dh-test/common-utils';
 
 import {
   IListQueryArguments,

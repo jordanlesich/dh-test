@@ -3,7 +3,7 @@ import {
   nowInSeconds,
   ProposalStatus,
   PROPOSAL_STATUS,
-} from '@daohaus/common-utilities';
+} from '@dh-test/common-utils';
 import { QueryProposal } from '../types';
 
 export const isProposalUnsponsored = (proposal: QueryProposal): boolean => {

@@ -4,7 +4,7 @@ import {
   ITransformedMembership,
   TokenBalance,
   votingPowerPercentage,
-} from '@daohaus/common-utilities';
+} from '@dh-test/common-utils';
 import {
   ITransformedProposal,
   IFindQueryResult,
