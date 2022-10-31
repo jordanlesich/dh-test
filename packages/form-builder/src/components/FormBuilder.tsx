@@ -20,8 +20,7 @@ import { FormLego } from '../types';
 import { Logger } from './Logger';
 import { FormFooter } from './formFooter';
 import { FormBuilderFactory } from './FormBuilderFactory';
-// import { useTxBuilder } from '@daohaus/tx-builder-feature';
-import { useParams } from 'react-router-dom';
+import { useTxBuilder } from '@dh-test/tx-builder';
 
 type FormContext<Lookup extends LookupType> = {
   form?: FormLego<Lookup>;
@@ -53,6 +52,7 @@ type BuilderProps<Lookup extends LookupType> = {
   onCancel?: () => void;
   onSuccess?: () => void;
   onError?: () => void;
+  targetNetwork?: string;
 };
 
 export enum StatusMsg {
@@ -73,6 +73,7 @@ export function FormBuilder<Lookup extends LookupType>({
   customFields,
   onSuccess,
   onError,
+  targetNetwork,
 }: BuilderProps<Lookup>) {
   const { chainId } = useHausConnect();
 
@@ -92,79 +93,79 @@ export function FormBuilder<Lookup extends LookupType>({
     requiredFields = {},
   } = form;
 
-  // const { fireTransaction } = useTxBuilder?.() || {};
-  const { daochain } = useParams();
+  const { fireTransaction } = useTxBuilder?.() || {};
+
   const { defaultToast, errorToast, successToast } = useToast();
 
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<null | StatusMsg>(null);
   const [txHash, setTxHash] = useState<null | string>(null);
 
-  const isSameNetwork = daochain === chainId;
+  const isSameNetwork = targetNetwork ? targetNetwork === chainId : true;
   const submitDisabled =
     !isValid || isLoading || !isValidNetwork(chainId) || !isSameNetwork;
   const formDisabled = isLoading;
 
   const handleTopLevelSubmit = async (formValues: FieldValues) => {
-    // if (form.tx) {
-    //   setIsLoading(true);
-    //   setTxHash(null);
-    //   setStatus(StatusMsg.Compile);
-    //   return await fireTransaction({
-    //     tx: form.tx,
-    //     callerState: {
-    //       formValues,
-    //     },
-    //     lifeCycleFns: {
-    //       onRequestSign() {
-    //         setStatus(StatusMsg.Request);
-    //       },
-    //       onTxHash(txHash) {
-    //         setTxHash(txHash);
-    //         setStatus(StatusMsg.Await);
-    //       },
-    //       onTxError(error) {
-    //         setStatus(StatusMsg.TxErr);
-    //         const errMsg = handleErrorMessage({
-    //           error,
-    //           fallback: 'Could not decode error message',
-    //         });
-    //         setIsLoading(false);
-    //         onError?.();
-    //         errorToast({ title: StatusMsg.TxErr, description: errMsg });
-    //       },
-    //       onTxSuccess() {
-    //         setStatus(StatusMsg.TxSuccess);
-    //         defaultToast({
-    //           title: StatusMsg.TxSuccess,
-    //           description: 'Please wait for subgraph to sync',
-    //         });
-    //       },
-    //       onPollStart() {
-    //         setStatus(StatusMsg.PollStart);
-    //       },
-    //       onPollError(error) {
-    //         setStatus(StatusMsg.PollError);
-    //         const errMsg = handleErrorMessage({
-    //           error,
-    //           fallback: 'Could not decode poll error message',
-    //         });
-    //         setIsLoading(false);
-    //         onError?.();
-    //         errorToast({ title: StatusMsg.PollError, description: errMsg });
-    //       },
-    //       onPollSuccess() {
-    //         setStatus(StatusMsg.PollSuccess);
-    //         setIsLoading(false);
-    //         successToast({
-    //           title: StatusMsg.PollSuccess,
-    //           description: 'Transaction cycle complete.',
-    //         });
-    //         onSuccess?.();
-    //       },
-    //     },
-    //   });
-    // }
+    if (form.tx) {
+      setIsLoading(true);
+      setTxHash(null);
+      setStatus(StatusMsg.Compile);
+      return await fireTransaction({
+        tx: form.tx,
+        callerState: {
+          formValues,
+        },
+        lifeCycleFns: {
+          onRequestSign() {
+            setStatus(StatusMsg.Request);
+          },
+          onTxHash(txHash) {
+            setTxHash(txHash);
+            setStatus(StatusMsg.Await);
+          },
+          onTxError(error) {
+            setStatus(StatusMsg.TxErr);
+            const errMsg = handleErrorMessage({
+              error,
+              fallback: 'Could not decode error message',
+            });
+            setIsLoading(false);
+            onError?.();
+            errorToast({ title: StatusMsg.TxErr, description: errMsg });
+          },
+          onTxSuccess() {
+            setStatus(StatusMsg.TxSuccess);
+            defaultToast({
+              title: StatusMsg.TxSuccess,
+              description: 'Please wait for subgraph to sync',
+            });
+          },
+          onPollStart() {
+            setStatus(StatusMsg.PollStart);
+          },
+          onPollError(error) {
+            setStatus(StatusMsg.PollError);
+            const errMsg = handleErrorMessage({
+              error,
+              fallback: 'Could not decode poll error message',
+            });
+            setIsLoading(false);
+            onError?.();
+            errorToast({ title: StatusMsg.PollError, description: errMsg });
+          },
+          onPollSuccess() {
+            setStatus(StatusMsg.PollSuccess);
+            setIsLoading(false);
+            successToast({
+              title: StatusMsg.PollSuccess,
+              description: 'Transaction cycle complete.',
+            });
+            onSuccess?.();
+          },
+        },
+      });
+    }
     if (onSubmit) {
       return await onSubmit?.(formValues);
     }

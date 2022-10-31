@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "resolveJsonModule": true,
+    "noPropertyAccessFromIndexSignature": false,
     "paths": {
       "@dh-test/abi": ["packages/abi/src/index.ts"],
       "@dh-test/common-utils": ["packages/common-utils/src/index.ts"],

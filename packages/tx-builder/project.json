@@ -15,6 +15,7 @@
         "entryFile": "packages/tx-builder/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "compiler": "babel",
         "assets": [
           {
@@ -43,7 +44,7 @@
     "publish":{
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/scripts/publish.mjs tx-builder 0.0.0 @dh-test/tx-builder"
+        "command": "node tools/scripts/publish.mjs tx-builder 0.0.1 @dh-test/tx-builder"
       }
     }
   }
