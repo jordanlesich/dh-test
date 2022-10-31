@@ -52,6 +52,7 @@ export const encodeSafeSignMessage = (
       operation: '1',
     };
   }
+  return undefined;
 };
 
 const rejectWithMessage = (
