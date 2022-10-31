@@ -59,9 +59,8 @@ export const SummonerForm = ({
     }
 
     setIsSubmitting(true);
+    const args = assembleTxArgs(formValues, chainId);
     try {
-      const args = assembleTxArgs(formValues, chainId);
-
       fireTransaction({
         tx: {
           ...SummonTX,
@@ -93,6 +92,7 @@ export const SummonerForm = ({
             }
           },
           onTxError(error) {
+            console.error(error);
             if (error instanceof Error) {
               setErrMsg(error.message);
               errorToast({ title: 'Summon Error', description: error.message });
@@ -105,6 +105,8 @@ export const SummonerForm = ({
             }
           },
           onPollError(error) {
+            console.error(error);
+
             if (error instanceof Error) {
               setErrMsg(error.message);
               errorToast({ title: 'Summon Error', description: error.message });
@@ -119,6 +121,8 @@ export const SummonerForm = ({
         },
       });
     } catch (error) {
+      console.error(error);
+
       if (error instanceof Error) {
         setErrMsg(error.message);
         errorToast({ title: 'Summon Error', description: error.message });

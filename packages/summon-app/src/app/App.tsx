@@ -25,7 +25,7 @@ const TemporaryLayout = styled.div`
 
 export type SummonStates = 'idle' | 'loading' | 'success' | 'error';
 export const App = () => {
-  const { provider, chainId } = useHausConnect();
+  const { provider, chainId, profile } = useHausConnect();
 
   const [summonState, setSummonState] = useState<SummonStates>('idle');
   const [txHash, setTxHash] = useState<string>('');
