@@ -15,6 +15,7 @@
         "entryFile": "packages/molochv3-context/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "compiler": "babel",
         "assets": [
           {
@@ -38,6 +39,12 @@
       "options": {
         "jestConfig": "packages/molochv3-context/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs molochv3-context 0.0.1 @dh-test/molochv3-context"
       }
     }
   }
