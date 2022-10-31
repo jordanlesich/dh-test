@@ -24,6 +24,7 @@
       "@dh-test/form-builder": ["packages/form-builder/src/index.ts"],
       "@dh-test/is-even": ["packages/is-even/src/index.ts"],
       "@dh-test/is-odd": ["packages/is-odd/src/index.ts"],
+      "@dh-test/molochv3-context": ["packages/molochv3-context/src/index.ts"],
       "@dh-test/tx-builder": ["packages/tx-builder/src/index.ts"],
       "@dh-test/ui": ["packages/ui/src/index.ts"]
     }
